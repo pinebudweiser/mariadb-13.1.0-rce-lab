@@ -172,7 +172,9 @@ $ rm -rf /tmp/frm_selfheal
 ```
 
 ### 데모 영상
-https://github.com/user-attachments/assets/5d41164c-f8f1-46fc-959a-22e6e849d795
+https://github.com/user-attachments/assets/7c2d24a4-0ea0-4f85-8814-c212ad001177
+
+
 
 
 
