@@ -274,4 +274,4 @@ As demonstrated in the video and attack scenario, exploiting MDEV-40571 requires
 
 ## Credits
 - [pinebudweiser](https://github.com/pinebudweiser)
-- [Ph4nt0m](https://blog.ph4nt0m.xyz/ko/blog/)
+- [Ph4nt0m](https://blog.ph4nt0m.xyz/en/)
