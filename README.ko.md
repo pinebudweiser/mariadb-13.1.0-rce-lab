@@ -196,7 +196,7 @@ t16 테이블은 frm 변조를 기반으로 코드 실행과 comment_pos 주소 
 │  ├─ interval_array                          │                   │
 │  ├─ tvl                                     │                   │
 │  ├─ names                                   │                   │
-│  ├─ comment_pos ← "Q..." will be set payload│                   │
+│  ├─ comment_pos ← "Q..." will be set payload│                   │ <-- [MDEV-40571] If `fieldnr` is manipulated, the `share->field` object may point to the `comment_pos` buffer.
 │  └─ vcol_screen                             │                   │
 ├──────────────────────────────────────────── │                   │
 │ Field_long(Field*) object [id]              │ alloc_root()      │  i=0
