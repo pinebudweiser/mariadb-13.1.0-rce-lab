@@ -275,4 +275,4 @@ print("[*] fired. check /tmp/frm_pwned_t16 for proof.")
 
 ## Credits
 - [pinebudweiser](https://github.com/pinebudweiser)
-- [Ph4nt0m](https://blog.ph4nt0m.xyz/ko/blog/)
+- [Ph4nt0m](https://blog.ph4nt0m.xyz/ko/)
