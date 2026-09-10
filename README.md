@@ -1,8 +1,3 @@
-
-
-https://github.com/user-attachments/assets/411ae02b-6dd4-400d-814a-e08e316e2f86
-
-
 <p align="center">
   <a href="./README.md"><img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
   <a href="./README.ko.md"><img src="https://img.shields.io/badge/lang-한국어-red.svg" alt="한국어"></a>
