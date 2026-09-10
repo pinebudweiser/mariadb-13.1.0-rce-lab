@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a href="README.md"><img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
-  <a href="README.ko.md"><img src="https://img.shields.io/badge/lang-한국어-red.svg" alt="한국어"></a>
+  <a href="./README.md"><img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
+  <a href="./README.ko.md"><img src="https://img.shields.io/badge/lang-한국어-red.svg" alt="한국어"></a>
 </p>
 
 # MDEV-40571
@@ -117,7 +117,9 @@ $ rm -rf /tmp/frm_selfheal
 ```
 
 ### 데모 영상
-![](assets/072926_10.4.18_remote_fieldnrOOBRead_RCE_poc.mp4)
+https://github.com/user-attachments/assets/5d41164c-f8f1-46fc-959a-22e6e849d795
+
+
 
 ### 취약점 발단
 A사의 침투테스트 진행 중 SQLI를 통해 mariadb의 DBMS 크레덴셜을 획득 한 뒤, 대상 서버에 SSH 개인키 파일이 존재하는 것을 확인 하였습니다. SSH 개인 키를 얻기 위해 SQL 쿼리 만을 가지고 여러 방법을 시도 해봤으나 서버는 AWS 이미지를 받아 구성 되어있었고 기본적인 하드닝이 되어 plugindir, 우분투 파일 시스템에 대한 권한 제한으로 인해 코드 실행 할 방법이 없었습니다. 고민하던 중 유일하게 mariadbd 권한으로 파일 시스템에 R/W가 가능한 위치가 datadir 이였고 MySQL 구버전 및 MariaDB는 테이블을 처리할 때 frm 바이너리에 테이블 구조를 보관하는 것을 알게 되었습니다. 이를 기반으로 SQL 쿼리만을 통해 frm을 제어 할 수 있다면 파서에서 잘못 처리하는 부분이 있지 않을까라는 가설을 새우고 취약점 연구를 시작하게 되었습니다.
