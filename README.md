@@ -195,7 +195,7 @@ The `t16` table is designed to support code execution and disclosure of the `com
 │  ├─ interval_array                          │                   │
 │  ├─ tvl                                     │                   │
 │  ├─ names                                   │                   │
-│  ├─ comment_pos ← "Q..." will be set payload│                   │
+│  ├─ comment_pos ← "Q..." will be set payload│                   │<-- [MDEV-40571] If `fieldnr` is manipulated, the `share->field` object may point to the `comment_pos` buffer.
 │  └─ vcol_screen                             │                   │
 ├──────────────────────────────────────────── │                   │
 │ Field_long(Field*) object [id]              │ alloc_root()      │  i=0
