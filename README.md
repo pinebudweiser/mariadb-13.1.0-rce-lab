@@ -1,7 +1,11 @@
 
+
+https://github.com/user-attachments/assets/411ae02b-6dd4-400d-814a-e08e316e2f86
+
+
 <p align="center">
-  <a href="README.md"><img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
-  <a href="README.ko.md"><img src="https://img.shields.io/badge/lang-한국어-red.svg" alt="한국어"></a>
+  <a href="./README.md"><img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
+  <a href="./README.ko.md"><img src="https://img.shields.io/badge/lang-한국어-red.svg" alt="한국어"></a>
 </p>
 
 # MDEV-40571
@@ -117,7 +121,9 @@ $ rm -rf /tmp/frm_selfheal
 ```
 
 ### Demo Video
-![](assets/072926_10.4.18_remote_fieldnrOOBRead_RCE_poc.mp4)
+https://github.com/user-attachments/assets/0b0eef9a-2228-42a2-b966-3ea25245367f
+
+
 
 ### Discovery Background
 During a penetration test for Company A, we obtained MariaDB credentials through SQL injection and identified an SSH private key file on the target server. We tried several SQL-only approaches to retrieve the key. However, the server had been provisioned from an AWS image with basic hardening, and permissions on the plugin directory and the Ubuntu filesystem prevented the code execution approaches we attempted. The data directory (`datadir`) was the only location we identified where the `mariadbd` process had both read and write access. We then found that older MySQL versions and MariaDB store table definitions in binary .frm files. This led us to investigate whether manipulating a .frm file using only SQL queries could expose flaws in the parser.
